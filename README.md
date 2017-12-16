@@ -36,14 +36,14 @@ A 'Particle' object is defined to represent properties of each particle, includi
 
 ```markdown
 class Particle {
-	constructor(p, v, a, c, r, t) {
-		this.p = p; // position
-		this.v = v; // velocity
-		this.a = a; // acceleration
-		this.c = c; // color
-		this.r = r; // radius
-		this.t = t; // time this particle gets generated
-	}
+  constructor(p, v, a, c, r, t) {
+    this.p = p; // position
+    this.v = v; // velocity
+    this.a = a; // acceleration
+    this.c = c; // color
+    this.r = r; // radius
+    this.t = t; // time this particle gets generated
+    }
 }
 ```
 
