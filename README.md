@@ -70,24 +70,24 @@ function setupParticles() {
 Only one sphere gets generated and passed into buffer. Different model transformation matrices are used to implement copies and movements of particles. Changes on properties aare implemented by pushing and popping model transofrmation matrix array. 
 
 ```markdown
-    for (i=0; i<particles.length; i++) {
-      var particle = particles[i]; 
+for (i=0; i<particles.length; i++) {
+  var particle = particles[i]; 
 
-      mvPushMatrix(); 
-      ka = particle.c; 
-      uploadMaterialToShader(ka, kd, ks); 
-      updateParticle(particles[i]); 
-      updateCollision(particles[i]); 
-      mat4.translate(mvMatrix, mvMatrix, p); 
+  mvPushMatrix(); 
+  ka = particle.c; 
+  uploadMaterialToShader(ka, kd, ks); 
+  updateParticle(particles[i]); 
+  updateCollision(particles[i]); 
+  mat4.translate(mvMatrix, mvMatrix, p); 
 
-      mvPushMatrix(); 
-      mat4.scale(mvMatrix, mvMatrix, vec3.fromValues(particle.r, particle.r, particle.r)); 
-      setMatrixUniforms(); 
-      drawSphere(); 
-      mvPopMatrix();
+  mvPushMatrix(); 
+  mat4.scale(mvMatrix, mvMatrix, vec3.fromValues(particle.r, particle.r, particle.r)); 
+  setMatrixUniforms(); 
+  drawSphere(); 
+  mvPopMatrix();
 
-      mvPopMatrix();
-    }
+  mvPopMatrix();
+}
 ```
 
 ### Property Updates
