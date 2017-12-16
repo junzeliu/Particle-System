@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CS418 MP4: Simple Particle System</title>
+ 
+<script id="shader-vs" type="x-shader/x-vertex">
+attribute vec3 aVertexNormal;
+attribute vec3 aVertexPosition;
+
+uniform mat4 uMVMatrix;
+uniform mat4 uPMatrix;
+uniform mat3 uNMatrix;
+
+varying vec3 vertexPositionEye3;
+varying vec3 normalEye; 
+
+void main(void) {
+
+    // Get the vertex position in eye coordinates
+    vec4 vertexPositionEye4 = uMVMatrix * vec4(aVertexPosition, 1.0);
+    vertexPositionEye3 = vertexPositionEye4.xyz;
+
+    // Transform the normal (n) to eye coordinates
+    normalEye = normalize(uNMatrix * aVertexNormal);
+ 
+    gl_Position = uPMatrix*uMVMatrix*vec4(aVertexPosition, 1.0);
+}
+</script>
+
+<script id="shader-fs" type="x-shader/x-fragment">
+precision mediump float;
+
+uniform vec3 uLightPosition; // Already in Eye coordinates
+uniform vec3 uAmbientLightColor;
+uniform vec3 uDiffuseLightColor;
+uniform vec3 uSpecularLightColor;
+
+uniform vec3 uAmbientMatColor;
+uniform vec3 uDiffuseMatColor;
+uniform vec3 uSpecularMatColor;
+
+varying vec3 vertexPositionEye3;
+varying vec3 normalEye; 
+
+const float shininess = 32.0;
+
+void main(void) {
+    // Calculate the vector (l) to the light source
+    vec3 vectorToLightSource = normalize(uLightPosition - vertexPositionEye3);
+    
+    // Calculate n dot l for diffuse lighting
+    float diffuseLightWeighting = max(dot(normalEye, 
+                                    vectorToLightSource), 0.0);
+                                       
+    // Calculate the reflection vector (r) that is needed for specular light
+    vec3 reflectionVector = normalize(reflect(-vectorToLightSource, 
+                                             normalEye));
+    
+    // The camera in eye coordinates is located at the origin and is pointing
+    // along the negative z-axis. Calculate viewVector (v) 
+    // in eye coordinates as:
+    // (0.0, 0.0, 0.0) - vertexPositionEye3
+    vec3 viewVectorEye = -normalize(vertexPositionEye3);
+    
+    float rdotv = max(dot(reflectionVector, viewVectorEye), 0.0);
+    
+    float specularLightWeighting = pow(rdotv, shininess); 
+
+    // Sum up all three reflection components and send to the fragment shader
+    vec4 vColor = vec4((uAmbientLightColor * uAmbientMatColor)
+                + ((uDiffuseLightColor * uDiffuseMatColor) * diffuseLightWeighting)
+                + ((uSpecularLightColor * uSpecularMatColor) * specularLightWeighting),1.0);
+
+    gl_FragColor = vColor;
+ }
+</script>
+
+<script src="./source/gl-matrix-min.js"></script>
+<script src="./source/webgl-utils.js"></script>
+<script src="./source/simpleModeling.js"></script>
+<script src="./source/Spheres.js"></script>
+<script src="./source/Particle.js"></script>
+
+</head>
+
+   
+<body onload="startup();">
+ <canvas id="myGLCanvas" width="800" height="600" onmousedown="detectLeftMouse()"></canvas>
+ <form id="input_form">
+      <fieldset>
+          <legend>Rendering Parameters</legend>
+          <button id="myButton" type="button" onclick="resetParticles()">RESET</button>
+          <input type="radio" name="primitive" id="gravity" value="gravity" checked> gravity
+          <input type="radio" name="primitive" id="space" value="space"> non-gravity
+      </fieldset>
+  </form>
+  <p>To generate particles, click <b>left mouse button</b></p>
+  <p>To clear particles on canvas, click <b>RESET</b> button</p>
+  <p>You may also eliminate the gravity by clicking <b>non-gravity</b>. <br>
+  After particles stop in the non-gravity space, enable the gravity again. <br>
+  It'll bring some fun. &#x2603</p>
+
+</body></html>
