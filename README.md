@@ -20,7 +20,7 @@ There are two types of collision: Sphere-Wall and Sphere-Shpere. The Sphere-Sphe
 
 #### Response
 
-![Hello](images/sphere-wall-collision.png "from Internet")
+![Hello](images/sphere-wall-collision.jpeg "from Internet")
 
 The action after collision happened between sphere and wall are calculated following physics rules. The incident angle and reflected angle are kept equal. There is a velocity lost when spheres hit the wall, calculated by multiplying a constant rate each time. The response direction is calculated by the same formular as reflecting ray. So, given Ri, we can calculate reflecting direction Rr = Ri - 2 N (Ri . N). 
 
@@ -34,7 +34,7 @@ We check for a collision when updating positions. If a collision occurs, the vel
 
 A sweep test is applied to dynamically check if there is any intersection of sphere and wall. It assures the detection accuracy, but may not be computationally feasible. The time interval between two tests needs to be properly adjusted. 
 
-![Hello](images/sphere-wall-collision.png "from Internet")
+![Hello](images/sweep-geometry.png "from Internet")
 
 ### Particle Properties
 
