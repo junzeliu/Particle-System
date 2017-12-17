@@ -166,7 +166,7 @@ function updateCollision(particle) {
 
 At each frame (inside draw() function), iterate through the partilces array and call methods above to implement the movements and collisions. 
 
-For more details see [GitHub Page](https://github.com/JustinLiu412/Particle-System/blob/master/source/Spheres.js).
+For more details see [Spheres.js](https://github.com/JustinLiu412/Particle-System/blob/master/source/Spheres.js).
 
 ### URL
 
