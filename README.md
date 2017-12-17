@@ -20,11 +20,9 @@ There are two types of collision: Sphere-Wall and Sphere-Shpere. The Sphere-Sphe
 
 #### Response
 
-<div style="text-align: center;"><img src="images/sphere-ball-collision.jpg" alt="Drawing" style="width: 200px;" align="middle"/></div>
-
 The action after collision happened between sphere and wall are calculated following physics rules. The incident angle and reflected angle are kept equal. There is a velocity lost when spheres hit the wall, calculated by multiplying a constant rate each time. The response direction is calculated by the same formular as reflecting ray. So, given Ri, we can calculate reflecting direction Rr = Ri - 2 N (Ri . N). 
 
-<div style="text-align: center;"><img src="images/reflection-ray.png" alt="Drawing" style="width: 200px;" align="middle"/></div>
+<div style="text-align: center;"><img src="images/sphere-ball-collision.jpg" alt="Drawing" style="width: 200px;" align="middle"/><img src="images/reflection-ray.png" alt="Drawing" style="width: 200px;" align="middle"/></div>
 
 However, in this case, we setup a cubic box as boundaries, whose center is at (0,0,0) in 3D space. The calculation can be simplified as multiplying the closing component of velocity vector by -1. 
 
