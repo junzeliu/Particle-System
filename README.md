@@ -7,6 +7,7 @@ Particle systems are typically used to model fine-grained physical effects like 
 ![alt text][logo]
 
 [logo]: images/screen_shot.gif "Screenshot of Particle-System"
+<div style="text-align: center;"><img src="images/screen-shot.gif" alt="Drawing" style="width: 200px;" align="middle"/></div>
 
 ### [DEMO](Spheres.html)
 
