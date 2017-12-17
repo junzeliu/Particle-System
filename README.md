@@ -10,15 +10,11 @@ Particle systems are typically used to model fine-grained physical effects like 
 
 ### [DEMO](Spheres.html)
 
-## Implementation
-
-The spheres are bounded inside of a cubic box, and implemented with a simple physics engine. 
-
-### Collision
+## Collision
 
 There are two types of collision: Sphere-Wall and Sphere-Shpere. The Sphere-Sphere collision are ignored here, because that can usually bring a time-consuming loop at every frame. 
 
-#### Response
+### Response
 
 The action after collision happened between sphere and wall are calculated following physics rules. The incident angle and reflected angle are kept equal. There is a velocity lost when spheres hit the wall, calculated by multiplying a constant rate each time. The response direction is calculated by the same formular as reflecting ray. So, given Ri, we can calculate reflecting direction Rr = Ri - 2 N (Ri . N). 
 
@@ -26,13 +22,17 @@ The action after collision happened between sphere and wall are calculated follo
 
 However, in this case, we setup a cubic box as boundaries, whose center is at (0,0,0) in 3D space. The calculation can be simplified as multiplying the closing component of velocity vector by -1. 
 
-#### Collision Detection
+### Collision Detection
 
 We check for a collision when updating positions. If a collision occurs, the velocity vector would be altered according to period from when the particle was generated. 
 
 A sweep test is applied to dynamically check if there is any intersection of sphere and wall. It assures the detection accuracy, but may not be computationally feasible. The time interval between two tests needs to be properly adjusted. 
 
 <div style="text-align: center;"><img src="images/sweep-geometry.png" alt="Drawing" style="width: 200px;" align="middle"/></div>
+
+## Implementation
+
+The spheres are bounded inside of a cubic box, and implemented with a simple physics engine. 
 
 ### Particle Properties
 
