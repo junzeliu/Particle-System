@@ -52,7 +52,6 @@ class Particle {
 ```
 
 ```javascript
-//-------------------------------------------------------------------------
 /**
   * Initialize a particle, and push it into the particle arrays
   */
@@ -99,7 +98,6 @@ for (i=0; i<particles.length; i++) {
 Three methods are defined to deal with property updates. They are: 
 
 ```javascript
-//-------------------------------------------------------------------------
 /**
   * Clear all the particles (called by button event)
   */
@@ -113,7 +111,6 @@ function resetParticles() {
 ```
 
 ```javascript
-//-------------------------------------------------------------------------
 /**
   * Update the velocity and postion of a particle
   * @param {Object} Particle object
@@ -140,7 +137,6 @@ function updateParticle(particle) {
 ```
 
 ```javascript
-//-------------------------------------------------------------------------
 /**
   * Check the collision between particles and walls
   * Update the velocity and postion of a particle according to collision physics
