@@ -38,7 +38,7 @@ A sweep test is applied to dynamically check if there is any intersection of sph
 
 A 'Particle' object is defined to represent properties of each particle, including position, velocity, color, radius, etc. Some of them are randomly initialized for better display. All the particles get stored in an array after being generated. 
 
-```markdown
+```javascript
 class Particle {
   constructor(p, v, a, c, r, t) {
     this.p = p; // position
@@ -51,7 +51,7 @@ class Particle {
 }
 ```
 
-```markdown
+```javascript
 //-------------------------------------------------------------------------
 /**
   * Initialize a particle, and push it into the particle arrays
@@ -73,7 +73,7 @@ function setupParticles() {
 
 Only one sphere gets generated and passed into buffer. Different model transformation matrices are used to implement copies and movements of particles. Changes on properties aare implemented by pushing and popping model transofrmation matrix array. 
 
-```markdown
+```javascript
 for (i=0; i<particles.length; i++) {
   var particle = particles[i]; 
 
@@ -98,7 +98,7 @@ for (i=0; i<particles.length; i++) {
 
 Three methods are defined to deal with property updates. They are: 
 
-```markdown
+```javascript
 //-------------------------------------------------------------------------
 /**
   * Clear all the particles (called by button event)
@@ -112,7 +112,7 @@ function resetParticles() {
 }
 ```
 
-```markdown
+```javascript
 //-------------------------------------------------------------------------
 /**
   * Update the velocity and postion of a particle
@@ -139,7 +139,7 @@ function updateParticle(particle) {
 }
 ```
 
-```markdown
+```javascript
 //-------------------------------------------------------------------------
 /**
   * Check the collision between particles and walls
