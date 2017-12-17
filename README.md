@@ -166,12 +166,8 @@ function updateCollision(particle) {
 
 At each frame (inside draw() function), iterate through the partilces array and call methods above to implement the movements and collisions. 
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+For more details see [GitHub Page](https://github.com/JustinLiu412/Particle-System/blob/master/source/Spheres.js).
 
-### Jekyll Themes
+### URL
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/JustinLiu412/Particle-System/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+https://justinliu412.github.io/Particle-System/
