@@ -4,10 +4,7 @@ This is a project related to Interactive Computer Graphic technique, using WebGL
 
 Particle systems are typically used to model fine-grained physical effects like fire, smoke, and water. This is a simple application rendering a system of bouncing spheres in 3D.
 
-![alt text][logo]
-
-[logo]: images/screen_shot.gif "Screenshot of Particle-System"
-<div style="text-align: center;"><img src="images/screen-shot.gif" alt="Drawing" style="width: 200px;" align="middle"/></div>
+<div style="text-align: center;"><img src="images/screen-shot.gif" alt="Drawing" align="middle"/></div>
 
 ### [DEMO](Spheres.html)
 
