@@ -168,4 +168,4 @@ For more details see [Spheres.js](https://github.com/JustinLiu412/Particle-Syste
 
 ### URL
 
-https://junzel.github.io/Particle-System/
+https://junzeliu.github.io/Particle-System/
